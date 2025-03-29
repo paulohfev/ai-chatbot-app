@@ -1,6 +1,8 @@
+'use client'
+
 import { Box, Typography } from '@mui/material'
 
-import GPTForm from './components/GPTForm'
+import ChatForm from './components/ChatForm'
 import Grid from './components/Grid'
 import styles from './styles'
 
@@ -11,7 +13,7 @@ export default function Home() {
         <Grid size={6} sx={styles.gridColumn}>
           <Typography>What can I help you with?</Typography>
 
-          <GPTForm />
+          <ChatForm />
         </Grid>
       </Grid>
     </Box>
