@@ -14,7 +14,8 @@ export async function POST(req: NextRequest) {
     const reply = await getChatCompletion({ prompt })
 
     return new Response(JSON.stringify({ reply }), { status: 200 })
-  } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 })
+  } catch (error: unknown) {
+    console.error('Error in sending prompt:', error)
+    return new Response(JSON.stringify({ error: 'Failed to send the prompt to API.' }), { status: 500 })
   }
 }

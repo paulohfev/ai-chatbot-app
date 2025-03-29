@@ -1,19 +1,22 @@
 import chatAIClient from '../clients/chatAIClient'
+import { ChatCompletionResponse } from '../types/chatCompleteResponse'
 
-type ChatCompletionRequest = {
+type ChatCompletionRequestParams = {
   prompt: string
 }
 
-export async function getChatCompletion({ prompt }: ChatCompletionRequest) {
+export const getChatCompletion = async ({ prompt }: ChatCompletionRequestParams) => {
   try {
-    const response = await chatAIClient.post('/chat/completions', {
+    const response = await chatAIClient.post<ChatCompletionResponse>('/chat/completions', {
       model: process.env.API_MODEL,
       messages: [{ role: 'user', content: prompt }],
     })
 
     // @TODO review messaging continuation and listing
     return response.data.choices[0].message.content
-  } catch (error: any) {
-    throw new Error(error.response?.data?.error?.message || 'Failed to fetch response from OpenAI')
+  } catch (error: unknown) {
+    console.error('Error creating chat completion:', error)
+    const err = error as { response?: { data?: { error?: string } } }
+    throw new Error(err.response?.data?.error ?? 'Failed to retrieve a response. Please try again later.')
   }
 }
