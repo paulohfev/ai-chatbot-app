@@ -2,9 +2,11 @@ import { useQuery } from '@tanstack/react-query'
 
 import { getChats } from '@/app/services/chatService'
 
+import { TanstackQueryKeys } from '../constants/TanstackQueryKeys'
+
 const useChats = () => {
   const { data: chats, isLoading } = useQuery({
-    queryKey: ['chats'],
+    queryKey: [TanstackQueryKeys.chats],
     queryFn: () => getChats(),
   })
 

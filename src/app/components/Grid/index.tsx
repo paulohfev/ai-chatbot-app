@@ -1,4 +1,4 @@
-import { Grid2 as MUIGrid, Grid2Props as MUIGridProps } from '@mui/material'
+import { Grid as MUIGrid, GridProps as MUIGridProps } from '@mui/material'
 
 export type GridProps = MUIGridProps
 
