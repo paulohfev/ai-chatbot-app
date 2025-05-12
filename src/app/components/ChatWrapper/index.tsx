@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import { Box, CircularProgress } from '@mui/material'
 
@@ -17,6 +17,7 @@ export type ChatWrapperProps = {
 
 const ChatWrapper: React.FC<ChatWrapperProps> = ({ chatId, isChatCreated, isChatLoading, initialMessages }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([])
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (initialMessages && initialMessages.length > 0) {
@@ -24,9 +25,15 @@ const ChatWrapper: React.FC<ChatWrapperProps> = ({ chatId, isChatCreated, isChat
     }
   }, [initialMessages])
 
+  useEffect(() => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight
+    }
+  }, [messages])
+
   return (
-    <Box sx={styles.wrapper}>
-      <Box>
+    <Box sx={styles.wrapper(!!isChatCreated)}>
+      <Box ref={messagesContainerRef} sx={styles.messagesContainer}>
         {isChatLoading ? (
           <Box sx={styles.loadingContainer}>
             <CircularProgress />
@@ -36,7 +43,9 @@ const ChatWrapper: React.FC<ChatWrapperProps> = ({ chatId, isChatCreated, isChat
         )}
       </Box>
 
-      <ChatForm chatId={chatId} isChatCreated={isChatCreated} setMessages={setMessages} />
+      <Box sx={styles.formContainer(!!isChatCreated)}>
+        <ChatForm chatId={chatId} isChatCreated={isChatCreated} setMessages={setMessages} />
+      </Box>
     </Box>
   )
 }
