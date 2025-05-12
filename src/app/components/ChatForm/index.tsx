@@ -1,40 +1,29 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 
-import { Box, Button, Paper, TextField, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, TextField } from '@mui/material'
 
-import { sendChatMessage } from '@/app/services/chatService'
+import { ChatMessage } from '@/app/types/ChatMessage'
 
 import styles from './styles'
+import useChatFormController from './useChatFormController'
 
-const ChatForm: React.FC = () => {
-  // @TODO review and move to state management system
-  const [value, setValue] = useState('')
-  const [messages, setMessages] = useState<{ role: string; content: string }[]>([])
+export type ChatFormProps = {
+  chatId?: string
+  isChatCreated?: boolean
+  setMessages: Dispatch<SetStateAction<ChatMessage[]>>
+}
 
-  const sendMessage = async () => {
-    const userMessage = { role: 'user', content: value }
-    setMessages((prev) => [...prev, userMessage])
-
-    const reply = await sendChatMessage({ prompt: value })
-    const botMessage = { role: 'assistant', content: reply }
-    setMessages((prev) => [...prev, botMessage])
-
-    setValue('')
-  }
+const ChatForm: React.FC<ChatFormProps> = ({ chatId, isChatCreated, setMessages }) => {
+  const { isSendingMessage, value, setValue, sendMessage } = useChatFormController({
+    chatId,
+    isChatCreated,
+    setMessages,
+  })
 
   return (
     <Box sx={styles.wrapper}>
-      <Box sx={styles.messagesListWrapper}>
-        {messages.map((msg, index) => (
-          <Box key={index} sx={styles.messageContainer(msg.role)}>
-            <Paper sx={styles.messagePaper}>
-              <Typography>{msg.content}</Typography>
-            </Paper>
-          </Box>
-        ))}
-      </Box>
-
       <TextField
+        disabled={isSendingMessage}
         label='Ask something'
         fullWidth
         maxRows={5}
@@ -43,8 +32,8 @@ const ChatForm: React.FC = () => {
         value={value}
       />
 
-      <Button onClick={sendMessage} variant='contained'>
-        Send
+      <Button disabled={isSendingMessage} onClick={sendMessage} variant='contained'>
+        {isSendingMessage ? <CircularProgress size={20} /> : 'Send'}
       </Button>
     </Box>
   )
