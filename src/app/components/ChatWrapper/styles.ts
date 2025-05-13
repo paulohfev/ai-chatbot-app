@@ -3,7 +3,7 @@ const styles = {
     ...(isChatCreated && {
       bottom: 0,
       position: 'sticky',
-    })
+    }),
   }),
   loadingContainer: {
     alignItems: 'center',
@@ -42,7 +42,7 @@ const styles = {
       height: 'calc(100vh - 115px)',
       justifyContent: 'space-between',
       position: 'relative',
-    })
+    }),
   }),
 }
 
