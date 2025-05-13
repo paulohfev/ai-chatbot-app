@@ -11,7 +11,9 @@ export default function Home() {
     <Box>
       <Grid container sx={styles.container}>
         <Grid size={12} sx={styles.gridColumn}>
-          <Typography>What can I help you with?</Typography>
+          <Typography component='h4' variant='h4' sx={styles.title}>
+            What can I help you with?
+          </Typography>
 
           <ChatWrapper />
         </Grid>
