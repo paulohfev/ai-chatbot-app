@@ -25,7 +25,7 @@ const ChatsActionHeader: React.FC<ChatsActionHeaderProps> = ({ category = ChatsA
   const handleToggleSidebar = () => toggleSidebar()
 
   return (
-    <Box sx={styles.header}>
+    <Box sx={styles.header(category)}>
       <IconButton sx={styles.headerButton} onClick={() => handleToggleSidebar()}>
         <ViewSidebar sx={styles.headerIcon(category)} />
       </IconButton>

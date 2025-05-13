@@ -13,7 +13,6 @@ const styles = {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
     justifyContent: isLoading ? 'center' : 'flex-start',
   }),
 
