@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { Box, CircularProgress, Drawer, List, ListItemButton, ListItemText } from '@mui/material'
 
-import ChatsActionHeader from '../ChatsActionHeader'
+import ChatsActionHeader, { ChatsActionHeaderCategory } from '../ChatsActionHeader'
 import styles from './styles'
 import useChatsSidebarController from './useChatsSidebarController'
 
@@ -11,7 +11,7 @@ const ChatsSidebar: React.FC = () => {
 
   return (
     <Drawer anchor='left' variant='persistent' open={isSidebarOpen} sx={styles.drawer}>
-      <ChatsActionHeader />
+      <ChatsActionHeader category={ChatsActionHeaderCategory.Navbar} />
 
       <Box component='nav' sx={(theme) => styles.drawerContainer(theme, isLoading)}>
         {isLoading ? (
