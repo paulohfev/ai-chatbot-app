@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 
 import MainLayout from './components/MainLayout'
+import Navbar from './components/Navbar'
 import './globals.css'
 import TanstackQueryProvider from './providers/TanstackQueryProvider'
 import AppTheme from './theme/Theme'
@@ -31,7 +32,11 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <TanstackQueryProvider>
           <AppTheme>
-            <MainLayout>{children}</MainLayout>
+            <MainLayout>
+              <Navbar />
+
+              {children}
+            </MainLayout>
           </AppTheme>
         </TanstackQueryProvider>
       </body>
