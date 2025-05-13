@@ -9,6 +9,9 @@ const styles = {
     flexDirection: 'column' as const,
     gap: '12px',
   },
+  title: {
+    textAlign: 'center',
+  },
 }
 
 export default styles
