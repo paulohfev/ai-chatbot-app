@@ -1,10 +1,7 @@
 'use client'
 
-import { Box, Theme } from '@mui/material'
+import { Box } from '@mui/material'
 
-import { useChatsSidebarStore } from '@/app/store/chatsSidebarStore'
-
-import ChatsSidebar from '../ChatsSidebar'
 import styles from './styles'
 
 export type MainLayoutProps = Readonly<{
@@ -12,12 +9,8 @@ export type MainLayoutProps = Readonly<{
 }>
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  const { isSidebarOpen } = useChatsSidebarStore()
-
   return (
-    <Box component='main' sx={(theme: Theme) => styles.main(theme, isSidebarOpen)}>
-      <ChatsSidebar />
-
+    <Box component='main' sx={styles.main}>
       {children}
     </Box>
   )

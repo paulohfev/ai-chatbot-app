@@ -2,9 +2,9 @@
 
 import { Box, Typography } from '@mui/material'
 
-import ChatWrapper from './components/ChatWrapper'
-import Grid from './components/Grid'
-import styles from './styles'
+import ChatWrapper from '../components/ChatWrapper'
+import Grid from '../components/Grid'
+import styles from '../styles'
 
 export default function Home() {
   return (
