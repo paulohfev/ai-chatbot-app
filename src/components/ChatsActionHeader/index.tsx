@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation'
 import { Chat, Search, ViewSidebar } from '@mui/icons-material'
 import { Box, IconButton } from '@mui/material'
 
-import { useChatsSidebarStore } from '@/app/store/chatsSidebarStore'
+import { useChatsSidebarStore } from '@/store/chatsSidebarStore'
 
 import styles from './styles'
 

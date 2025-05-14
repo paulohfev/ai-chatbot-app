@@ -2,7 +2,7 @@
 
 import { Box } from '@mui/material'
 
-import Navbar from '../components/Navbar'
+import Navbar from '../../components/Navbar'
 import styles from './styles'
 
 export default function LoginLayout({ children }: { children: React.ReactNode }) {

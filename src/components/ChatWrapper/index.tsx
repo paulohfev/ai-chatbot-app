@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { Box, CircularProgress } from '@mui/material'
 
-import { ChatMessage } from '@/app/types/ChatMessage'
+import { ChatMessage } from '@/types/ChatMessage'
 
 import ChatForm from '../ChatForm'
 import ChatMessages from '../ChatMessages'

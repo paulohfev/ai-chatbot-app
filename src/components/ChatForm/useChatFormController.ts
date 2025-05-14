@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation'
 
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import { TanstackQueryKeys } from '@/app/constants/TanstackQueryKeys'
-import { updateChat } from '@/app/services/chatService'
-import { createChat } from '@/app/services/chatService'
-import { ChatMessage } from '@/app/types/ChatMessage'
+import { TanstackQueryKeys } from '@/constants/TanstackQueryKeys'
+import { updateChat } from '@/services/chatService'
+import { createChat } from '@/services/chatService'
+import { ChatMessage } from '@/types/ChatMessage'
 
 export type UseChatFormControllerParams = {
   chatId?: string

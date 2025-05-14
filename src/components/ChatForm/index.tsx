@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 import { Box, Button, CircularProgress, TextField } from '@mui/material'
 
-import { ChatMessage } from '@/app/types/ChatMessage'
+import { ChatMessage } from '@/types/ChatMessage'
 
 import styles from './styles'
 import useChatFormController from './useChatFormController'

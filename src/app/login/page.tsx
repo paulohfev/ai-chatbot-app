@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react'
 import { Google } from '@mui/icons-material'
 import { Box, Button } from '@mui/material'
 
-import Grid from '../components/Grid'
+import Grid from '../../components/Grid'
 
 const LoginPage = () => {
   return (

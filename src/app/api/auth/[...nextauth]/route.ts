@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
-import { APP_ROUTES } from '@/app/constants/appRoutes'
+import { APP_ROUTES } from '@/constants/appRoutes'
 
 const ALLOWED_EMAILS = process.env.ALLOWED_EMAILS?.split(',') || []
 

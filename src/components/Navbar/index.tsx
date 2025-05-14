@@ -2,7 +2,7 @@
 
 import { AppBar, Box, Theme, Typography } from '@mui/material'
 
-import { useChatsSidebarStore } from '@/app/store/chatsSidebarStore'
+import { useChatsSidebarStore } from '@/store/chatsSidebarStore'
 
 import ChatsActionHeader, { ChatsActionHeaderCategory } from '../ChatsActionHeader'
 import styles from './styles'

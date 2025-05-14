@@ -2,9 +2,9 @@
 
 import { Box, Theme } from '@mui/material'
 
-import ChatsSidebar from '../components/ChatsSidebar'
-import Navbar from '../components/Navbar'
-import { useChatsSidebarStore } from '../store/chatsSidebarStore'
+import ChatsSidebar from '../../components/ChatsSidebar'
+import Navbar from '../../components/Navbar'
+import { useChatsSidebarStore } from '../../store/chatsSidebarStore'
 import styles from './styles'
 
 export default function MainAppLayout({ children }: { children: React.ReactNode }) {
