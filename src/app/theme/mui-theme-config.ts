@@ -7,12 +7,18 @@ declare module '@mui/material/styles' {
     drawer: {
       width: string
     }
+    navbar: {
+      height: string
+    }
   }
 }
 
 const muiThemeConfig = {
   drawer: {
     width: components.drawer.width,
+  },
+  navbar: {
+    height: components.navbar.height,
   },
 }
 
