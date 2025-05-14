@@ -2,10 +2,10 @@ import { useMemo } from 'react'
 
 import { useParams } from 'next/navigation'
 
-import useChats from '@/app/hooks/useChats'
-import { useChatsSidebarStore } from '@/app/store/chatsSidebarStore'
-import { Chat } from '@/app/types/Chat'
-import { truncateText } from '@/app/utils/truncateText'
+import useChats from '@/hooks/useChats'
+import { useChatsSidebarStore } from '@/store/chatsSidebarStore'
+import { Chat } from '@/types/Chat'
+import { truncateText } from '@/utils/truncateText'
 
 type ChatsLink = {
   id: string

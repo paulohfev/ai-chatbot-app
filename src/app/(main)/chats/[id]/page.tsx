@@ -4,8 +4,8 @@ import { useParams } from 'next/navigation'
 
 import { Box } from '@mui/material'
 
-import ChatWrapper from '@/app/components/ChatWrapper'
-import Grid from '@/app/components/Grid'
+import ChatWrapper from '@/components/ChatWrapper'
+import Grid from '@/components/Grid'
 
 import useChatController from './useChatController'
 

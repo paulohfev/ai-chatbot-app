@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getChats } from '@/app/services/chatService'
+import { getChats } from '@/services/chatService'
 
 import { TanstackQueryKeys } from '../constants/TanstackQueryKeys'
 

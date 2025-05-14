@@ -1,7 +1,7 @@
 import { AccountCircle, SmartToyOutlined } from '@mui/icons-material'
 import { Box, Paper, Typography } from '@mui/material'
 
-import { ChatMessage } from '@/app/types/ChatMessage'
+import { ChatMessage } from '@/types/ChatMessage'
 
 import styles from './styles'
 
