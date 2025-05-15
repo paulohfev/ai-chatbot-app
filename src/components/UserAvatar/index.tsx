@@ -7,6 +7,8 @@ import PopupState, { bindPopover, bindToggle } from 'material-ui-popup-state'
 const UserAvatar: React.FC = () => {
   const { data: session } = useSession()
 
+  if (!session) return <></>
+
   return (
     <PopupState variant='popover' popupId='user-avatar-menu'>
       {(popupState) => (
