@@ -14,6 +14,12 @@ const styles = {
       padding: `10px 16px 10px calc(${theme.drawer.width} + 16px)`,
     }),
   }),
+
+  navbarProfileContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+  },
 }
 
 export default styles

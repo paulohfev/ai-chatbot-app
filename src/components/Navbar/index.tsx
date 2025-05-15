@@ -1,6 +1,8 @@
 'use client'
 
-import { AppBar, Box, Theme, Typography } from '@mui/material'
+import { useSession } from 'next-auth/react'
+
+import { AppBar, Avatar, Box, Theme, Typography } from '@mui/material'
 
 import { useChatsSidebarStore } from '@/store/chatsSidebarStore'
 
@@ -13,6 +15,7 @@ type NavbarProps = Readonly<{
 
 const Navbar: React.FC<NavbarProps> = ({ showActions = true }) => {
   const { isSidebarOpen } = useChatsSidebarStore()
+  const { data: session } = useSession()
 
   const showActionButtons = showActions && !isSidebarOpen
 
@@ -20,8 +23,10 @@ const Navbar: React.FC<NavbarProps> = ({ showActions = true }) => {
     <AppBar position='fixed' sx={(theme: Theme) => styles.navbar(theme, isSidebarOpen)}>
       {showActionButtons && <ChatsActionHeader category={ChatsActionHeaderCategory.Navbar} />}
 
-      <Box>
+      <Box sx={styles.navbarProfileContainer}>
         <Typography variant='h6'>Ai Chatbot App</Typography>
+
+        {session && <Avatar src={session?.user?.image || ''} />}
       </Box>
     </AppBar>
   )
